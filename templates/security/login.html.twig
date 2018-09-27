@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>R'Senate Login</title>
+        <!-- CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+		<noscript><div class="alert alert-danger"><span><strong>Notice: </strong> JavaScript is not enabled. Please enable JavaScript to utilize the full functionality of R'Senate.</div></noscript>
+        <!-- Top content -->
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>R'Senate</strong> Login</h1>
+                            <div class="description">
+                            	<p>
+	                            	R'Senate is a custom-built backend for faculty to apply for Senate Grants, vote in Senate Elections, and submit your committee preference. Eventually, all of Academic Senate tasks will be accessible through this backend. Please send all feedback and comments to <a href="mailto:senate@ucr.edu?subject=R'Senate Comments">senate@ucr.edu</a>.
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>To Access R'Senate,</h3>
+                            		<p>Use your UCR NetID and Password to login.<br />Only active faculty will be allowed to access R'Senate.</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form role="form" action="{{ path('login') }}" method="post" class="login-form">
+                                    <label for="username">Username:</label>
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" name="_password" />
+                                    <input type="hidden" name="_target_path" value="/dashboard" />
+			                        <button class="btn btn-sm btn-primary" type="submit">Login</button>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
