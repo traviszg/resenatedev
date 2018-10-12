@@ -4,9 +4,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>R'Senate Login</title>
+        <title>R'Senate Dev Login</title>
         <!-- CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/form-elements.css' )}}" />
+        <link rel="stylesheet" href="{{ asset('css/login-style.css') }}" />
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -17,26 +20,21 @@
     <body>
 		<noscript><div class="alert alert-danger"><span><strong>Notice: </strong> JavaScript is not enabled. Please enable JavaScript to utilize the full functionality of R'Senate.</div></noscript>
         <!-- Top content -->
-        <div class="container">
-            <div class="row">
-
-            </div>
-        </div>
-
         <div class="top-content">
             <div class="inner-bg">
                 <div class="container">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>R'Senate</strong> Login</h1>
                             <div class="description">
                             	<p>
-	                            	R'Senate is a custom-built backend for faculty to apply for Senate Grants, vote in Senate Elections, and submit your committee preference. Eventually, all of Academic Senate tasks will be accessible through this backend. Please send all feedback and comments to <a href="mailto:senate@ucr.edu?subject=R'Senate Comments">senate@ucr.edu</a>.
+	                                   R'Senate is a custom-built backend for faculty to apply for Senate Grants, vote in Senate Elections, and submit your committee preference. Eventually, all of Academic Senate tasks will be accessible through this backend. Please send all feedback and comments to <a href="mailto:senate@ucr.edu?subject=R'Senate Comments">senate@ucr.edu</a>.
                             	</p>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row justify-content-center">
+                        <!-- col-sm-6 col-sm-offset-3 -->
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
@@ -48,14 +46,16 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="{{ path('login') }}" method="post" class="login-form">
-                                    <label for="username">Username:</label>
-                                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-                                    <label for="password">Password:</label>
-                                    <input type="password" id="password" name="_password" />
-                                    <input type="hidden" name="_target_path" value="/dashboard" />
-			                        <button class="btn btn-sm btn-primary" type="submit">Login</button>
-			                    </form>
+                                <!-- Dev will log in via form. Live log in via CAS -->
+                                <form role="form" action="{{ path('login') }}" method="post" class="login-form">
+                                    <label for="password">Username:</label>
+                                    <input class="col-sm-12 from-control" id="username" name="_username" value="{{ username }}"/>
+                                    <br /><label for="password">Password:</label>
+                                    <input class="col-sm-12 form-control" id="password" name="_password"/>
+                                    <br />
+                                    <button type="submit">Login</button>
+                                    <!-- <a href="{{ path('login') }}"><span class="btn btn-success btn-link-1">Login</span></a> -->
+                                </form>
 		                    </div>
                         </div>
                     </div>
