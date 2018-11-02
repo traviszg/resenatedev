@@ -2,16 +2,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\EntityManager;
 /**
+* @ORM\Entity
 * @ORM\Table(name="'user_info_list'")
-* @ORM\Entity(repositoryClass="App\Repository\UserRepository")
 */
-class User {
+class User implements UserInterface, \Serializable {
     /**
-    * @ORM\user_id
-    * @ORM\Column(type="integer")
+    * @ORM\User_id
     */
     private $user_id;
     private $username;
@@ -31,17 +31,34 @@ class User {
         return $this->password;
     }
 
-    /*
     public function getRoles() {
         return array('ROLE_USER');
     }
-    */
+
+    public function getSalt() {
+
+    }
+
+    public function eraseCredentials() {
+
+    }
+
     public function serialize() {
         return serialize(array(
             $this->user_id,
             $this->username,
-            //$this->password
+            $this->email,
+            $this->status_id
         ));
+    }
+
+    public function unserialize($string) {
+        list(
+            $this->user_id,
+            $this->username,
+            $this->email,
+            $this->status_id
+        ) = unserialize($string, ['allowed_classes' => false]);
     }
 }
 
