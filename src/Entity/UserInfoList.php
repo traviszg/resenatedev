@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserInfoList
  *
- * @ORM\Table(name="user_info_list", indexes={@ORM\Index(name="user_info_name", columns={"username"}), @ORM\Index(name="department", columns={"department"})})
+ * @ORM\Table(name="user_info_list", indexes={@ORM\Index(name="user_info_name", columns={"user_id"}), @ORM\Index(name="department", columns={"department"})})
  * @ORM\Entity
  */
 class UserInfoList
@@ -220,5 +220,23 @@ class UserInfoList
      */
     private $department;
 
+    public function getFirstName() {
+        return $this->firstName;
+    }
 
+    public function getUserId() {
+        return $this->userId;
+    }
+
+    public function getNetId() {
+        return $this->netId;
+    }
+
+    public function getStatusId() {
+        return $this->statusId;
+    }
+
+    public function getResearchSpec() {
+        return $this->researchSpecialization;
+    }
 }

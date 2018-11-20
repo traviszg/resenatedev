@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LoginList
  *
  * @ORM\Table(name="login_list", indexes={@ORM\Index(name="user_id", columns={"user_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class LoginList
 {
@@ -29,6 +29,8 @@ class LoginList
     /**
      * @var string|null
      *
+     * @ORM\Id
+     * @ORM\OneToOne(targetEntity="UserInfoList")
      * @ORM\Column(name="netid", type="string", length=32, nullable=true)
      */
     private $netid;
@@ -43,24 +45,25 @@ class LoginList
     /**
      * @var \UserInfoList
      *
-     * @ORM\ManyToOne(targetEntity="UserInfoList")
+     * @ORM\OneToOne(targetEntity="UserInfoList")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false)
      * })
      */
     private $user;
 
     /**
-     * @var \UserInfoList
+     * @var string|null
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="UserInfoList")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="username", referencedColumnName="username")
-     * })
+     * @ORM\Column(name="username", type="string", length=32, nullable=true)
      */
     private $username;
 
+    public function getRole() {
+        return $this->role;
+    }
 
+    public function getUserId() {
+        return $this->user;
+    }
 }
